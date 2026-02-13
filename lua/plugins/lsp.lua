@@ -4,6 +4,8 @@ return {
     opts = {
       servers = {
         pyright = false,
+        ty = true,
+        ruff = true,
       },
     },
   },
