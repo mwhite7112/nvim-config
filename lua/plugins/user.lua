@@ -1,5 +1,23 @@
 return {
   {
+    "catppuccin/nvim",
+    name = "catppuccin",
+    priority = 1000,
+    opts = {
+      flavour = "mocha",
+      transparent_background = true,
+      float = {
+        transparent = true,
+      },
+    },
+  },
+  {
+    "LazyVim/LazyVim",
+    opts = {
+      colorscheme = "catppuccin",
+    },
+  },
+  {
     "folke/noice.nvim",
     enabled = false,
   },
@@ -23,7 +41,7 @@ return {
     keys = {
       {
         "<leader>e",
-        function ()
+        function()
           local explorer_win = nil
           for _, win in ipairs(vim.api.nvim_list_wins()) do
             local buf = vim.api.nvim_win_get_buf(win)
@@ -44,7 +62,7 @@ return {
       },
       {
         "<leader>ec",
-        function ()
+        function()
           for _, win in ipairs(vim.api.nvim_list_wins()) do
             local buf = vim.api.nvim_win_get_buf(win)
             local ft = vim.bo[buf].filetype
@@ -58,11 +76,11 @@ return {
       },
       {
         "<leader>fe",
-        function ()
+        function()
           vim.ui.input({
             prompt = "Edit file: ",
             completion = "file",
-          }, function (filepath)
+          }, function(filepath)
             if filepath and filepath ~= "" then
               vim.cmd("e " .. filepath)
             end
@@ -72,7 +90,7 @@ return {
       },
       {
         "Q",
-        function ()
+        function()
           Snacks.bufdelete()
         end,
         desc = "Delete Buffer",
